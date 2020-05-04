@@ -1,0 +1,1 @@
+This is the beginning of a random map generator for tabletop rpgs which use grid based movement systems (such as dungeons and dragons)
