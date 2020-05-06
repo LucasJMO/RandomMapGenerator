@@ -1,11 +1,23 @@
 import rooms #This is a bunch of room templates
+import mapDraw
+
+def addRoom(grid,room,X,Y):
+	if (len(grid[0]) < (X+len(room[0]))):
+		print("Invalid X Coordinate: "+X)
+		exit(0)
+	if (len(grid) < (X+len(room))):
+		print("Invalid Y Coordinate: "+Y)
+		exit(0)
+	for i in range(0, len(room)):
+		for k in range(0, len(room[i])):
+			grid[Y+i][X+k] = room[i][k]
 
 def createMap(grid):
-	print(len(grid))
-	print(len(grid[0]))
-
-createMap(rooms.grid50x50)
-
+	addRoom(grid,rooms.room5x5,0,0)
+	print(grid)
+	
+#createMap(rooms.grid50x50)
+#mapDraw.drawMap(rooms.room5x5)
 
 
 # Each room is an X by X grid, represented by a 2 dimensional array
