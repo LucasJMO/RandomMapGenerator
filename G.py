@@ -1,5 +1,6 @@
 import rooms #This is a bunch of room templates
 import mapDraw
+import mapConvert
 
 def addRoom(grid,room,X,Y):
 	if (len(grid[0]) < (X+len(room[0]))):
