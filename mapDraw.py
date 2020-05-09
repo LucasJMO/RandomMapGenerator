@@ -7,22 +7,19 @@ import time
 def drawMap(grid):
 	for i in range(0, len(grid)):
 		for k in range(0, len(grid[i])):
-			#print(str(i)+","+str(k))
 			penup()
-			if grid[i][k] & 0b1000:
-				goto(15*k,15*(0-i))
-				right(90)
+			if grid[i][k] & 0b1000: # So every spot on the grid contains a number between 0b0000 and 0b1111
+				goto(15*k,15*(0-i)) # 0bABCD, A = left, B = top, C = right, D = bottom
+				right(90)		    # So each if statements checks a particular digit and draws in that line if the digit is a 1
 				pendown()
 				forward(15)
 				penup()
 				left(90)
-				#print("Draw Left")
 			if grid[i][k] & 0b0100:
 				goto(15*k,15*(0-i))
 				pendown()
 				forward(15)
 				penup()
-				#print("Draw Top")
 			if grid[i][k] & 0b0010:
 				goto(15*(k+1),15*(0-i))
 				right(90)
@@ -30,13 +27,11 @@ def drawMap(grid):
 				forward(15)
 				penup()
 				left(90)
-				#print("Draw Right")
 			if grid[i][k] & 0b0001:
 				goto(15*k,15*(-1-i))
 				pendown()
 				forward(15)
 				penup()
-				#print("Draw Bottom")
 	#time.sleep(5)
 	#ts = turtle.getscreen()
 	#ts.getcanvas().postscript(file="map.eps")
